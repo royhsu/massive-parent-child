@@ -44,7 +44,7 @@ extension RestaurantMapViewController {
     
 }
 
-// MARK: MKMapViewDelegate
+// MARK: - MKMapViewDelegate
 
 extension RestaurantMapViewController: MKMapViewDelegate {
     
