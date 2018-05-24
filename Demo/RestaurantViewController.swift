@@ -27,11 +27,9 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
     
     var restaurant: Restaurant?
     
-    public final override func viewDidLoad() {
+    override func viewDidLoad() {
 
         super.viewDidLoad()
-        
-        mapView.delegate = self
         
         guard
             let restaurant = restaurant
@@ -43,8 +41,6 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         
         introductionLabel.text = restaurant.introduction
         
-        mapView.addAnnotation(restaurant)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,6 +50,10 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         guard
             let restaurant = restaurant
         else { return }
+        
+        mapView.delegate = self
+        
+        mapView.addAnnotation(restaurant)
         
         mapView.setCenter(
             restaurant.coordinate,
