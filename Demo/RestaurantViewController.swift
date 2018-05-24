@@ -63,6 +63,12 @@ class RestaurantViewController: UIViewController {
         
         setUpMapViewController()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
         guard
             let restaurant = restaurant
         else { return }
