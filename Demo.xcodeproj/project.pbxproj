@@ -14,7 +14,8 @@
 		B0FE385D20B658CC00FB2E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FE385C20B658CC00FB2E9A /* Main.storyboard */; };
 		B0FE385F20B65B4C00FB2E9A /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE385E20B65B4C00FB2E9A /* Restaurant.swift */; };
 		B0FE386120B65B7400FB2E9A /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE386020B65B7400FB2E9A /* Cuisine.swift */; };
-		B0FE386520B6638900FB2E9A /* Restaurant+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE386420B6638900FB2E9A /* Restaurant+MKAnnotation.swift */; };
+		B0FE386720B66B2900FB2E9A /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE386620B66B2900FB2E9A /* RestaurantMapViewController.swift */; };
+		B0FE386B20B6854F00FB2E9A /* Restaurant+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE386A20B6854F00FB2E9A /* Restaurant+MKAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		B0FE385C20B658CC00FB2E9A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B0FE385E20B65B4C00FB2E9A /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		B0FE386020B65B7400FB2E9A /* Cuisine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisine.swift; sourceTree = "<group>"; };
-		B0FE386420B6638900FB2E9A /* Restaurant+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+MKAnnotation.swift"; sourceTree = "<group>"; };
+		B0FE386620B66B2900FB2E9A /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
+		B0FE386A20B6854F00FB2E9A /* Restaurant+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+MKAnnotation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +65,9 @@
 				B0FE384D20B6550F00FB2E9A /* AppDelegate.swift */,
 				B0FE386020B65B7400FB2E9A /* Cuisine.swift */,
 				B0FE385E20B65B4C00FB2E9A /* Restaurant.swift */,
-				B0FE386420B6638900FB2E9A /* Restaurant+MKAnnotation.swift */,
+				B0FE386A20B6854F00FB2E9A /* Restaurant+MKAnnotation.swift */,
 				B0FE384F20B6550F00FB2E9A /* RestaurantViewController.swift */,
+				B0FE386620B66B2900FB2E9A /* RestaurantMapViewController.swift */,
 				B0FE385C20B658CC00FB2E9A /* Main.storyboard */,
 				B0FE385120B6550F00FB2E9A /* Assets.xcassets */,
 				B0FE385320B6550F00FB2E9A /* LaunchScreen.storyboard */,
@@ -144,11 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0FE386520B6638900FB2E9A /* Restaurant+MKAnnotation.swift in Sources */,
 				B0FE385020B6550F00FB2E9A /* RestaurantViewController.swift in Sources */,
+				B0FE386B20B6854F00FB2E9A /* Restaurant+MKAnnotation.swift in Sources */,
 				B0FE384E20B6550F00FB2E9A /* AppDelegate.swift in Sources */,
 				B0FE386120B65B7400FB2E9A /* Cuisine.swift in Sources */,
 				B0FE385F20B65B4C00FB2E9A /* Restaurant.swift in Sources */,
+				B0FE386720B66B2900FB2E9A /* RestaurantMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

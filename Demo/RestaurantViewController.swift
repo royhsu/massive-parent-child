@@ -11,7 +11,7 @@
 import MapKit
 import UIKit
 
-class RestaurantViewController: UIViewController, MKMapViewDelegate {
+class RestaurantViewController: UIViewController {
 
     @IBOutlet
     weak var nameLabel: UILabel!
@@ -23,16 +23,28 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
     weak var introductionLabel: UILabel!
     
     @IBOutlet
-    weak var mapView: MKMapView!
+    weak var mapContainerView: UIView!
+    
+    // The child map view controller.
+    lazy var mapViewController: RestaurantMapViewController = {
+        
+        let storyboard = UIStoryboard(
+            name: "Main",
+            bundle: nil
+        )
+      
+        let viewController = storyboard.instantiateViewController(withIdentifier: "RestaurantMapViewController") as! RestaurantMapViewController
+        
+        return viewController
+        
+    }()
     
     var restaurant: Restaurant?
     
-    public final override func viewDidLoad() {
+    override func viewDidLoad() {
 
         super.viewDidLoad()
-        
-        mapView.delegate = self
-        
+    
         guard
             let restaurant = restaurant
         else { return }
@@ -43,38 +55,68 @@ class RestaurantViewController: UIViewController, MKMapViewDelegate {
         
         introductionLabel.text = restaurant.introduction
         
-        mapView.addAnnotation(restaurant)
-        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
+        
+        setUpMapViewController()
         
         guard
             let restaurant = restaurant
         else { return }
         
-        mapView.setCenter(
-            restaurant.coordinate,
+        mapViewController.addRestaurant(
+            restaurant,
             animated: true
         )
         
     }
     
-    // MARK: MKMapViewDelegate
-    
-    func mapView(
-        _ mapView: MKMapView,
-        viewFor annotation: MKAnnotation
-    )
-    -> MKAnnotationView? {
+    override func viewDidDisappear(_ animated: Bool) {
         
-        return MKPinAnnotationView(
-            annotation: annotation,
-            reuseIdentifier: nil
-        )
+        super.viewDidDisappear(animated)
+        
+        tearDownMapViewController()
         
     }
-
+    
+    // Set up the map view controller as child.
+    func setUpMapViewController() {
+        
+        let mapContentView = mapViewController.view!
+        
+        addChildViewController(mapViewController)
+        
+        mapContainerView.addSubview(mapContentView)
+        
+        mapContentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [
+                mapContentView.topAnchor.constraint(equalTo: mapContainerView.topAnchor),
+                mapContentView.leadingAnchor.constraint(equalTo: mapContainerView.leadingAnchor),
+                mapContentView.bottomAnchor.constraint(equalTo: mapContainerView.bottomAnchor),
+                mapContentView.trailingAnchor.constraint(equalTo: mapContainerView.trailingAnchor)
+            ]
+        )
+        
+        mapViewController.didMove(toParentViewController: self)
+        
+    }
+    
+    // Tear down the child map view controller.
+    func tearDownMapViewController() {
+        
+        mapViewController.willMove(toParentViewController: nil)
+        
+        let mapContentView = mapViewController.view!
+        
+        mapContentView.removeFromSuperview()
+        
+        mapViewController.removeFromParentViewController()
+        
+    }
+    
 }

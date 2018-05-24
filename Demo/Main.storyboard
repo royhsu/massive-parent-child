@@ -36,40 +36,70 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1LL-UV-yzA">
-                                <rect key="frame" x="16" y="110.5" width="343" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6K-6U-Bow">
+                                <rect key="frame" x="16" y="111" width="343" height="200"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Bma-X6-ztQ"/>
+                                    <constraint firstAttribute="height" constant="200" id="oye-kx-NsF"/>
                                 </constraints>
-                            </mapView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zDh-9y-8oS" firstAttribute="leading" secondItem="3T1-8E-Y14" secondAttribute="leading" constant="16" id="0Iq-58-362"/>
-                            <constraint firstItem="1LL-UV-yzA" firstAttribute="top" secondItem="xl2-UY-QxB" secondAttribute="bottom" constant="8" id="40R-c5-nBR"/>
+                            <constraint firstItem="3T1-8E-Y14" firstAttribute="trailing" secondItem="c6K-6U-Bow" secondAttribute="trailing" constant="16" id="6A9-O3-9eG"/>
                             <constraint firstItem="3T1-8E-Y14" firstAttribute="trailing" secondItem="uNG-At-1Wg" secondAttribute="trailing" constant="16" id="CdA-wF-Ipz"/>
                             <constraint firstItem="xl2-UY-QxB" firstAttribute="top" secondItem="uNG-At-1Wg" secondAttribute="bottom" constant="8" id="Dm1-FZ-uDy"/>
                             <constraint firstItem="uNG-At-1Wg" firstAttribute="leading" secondItem="3T1-8E-Y14" secondAttribute="leading" constant="16" id="JcZ-ac-udK"/>
+                            <constraint firstItem="c6K-6U-Bow" firstAttribute="top" secondItem="xl2-UY-QxB" secondAttribute="bottom" constant="8" id="LLp-P0-dPd"/>
                             <constraint firstItem="xl2-UY-QxB" firstAttribute="leading" secondItem="3T1-8E-Y14" secondAttribute="leading" constant="16" id="TiH-KJ-wRb"/>
                             <constraint firstItem="3T1-8E-Y14" firstAttribute="trailing" secondItem="xl2-UY-QxB" secondAttribute="trailing" constant="16" id="U3X-s8-ecH"/>
                             <constraint firstItem="3T1-8E-Y14" firstAttribute="trailing" secondItem="zDh-9y-8oS" secondAttribute="trailing" constant="16" id="XCR-LH-U0B"/>
                             <constraint firstItem="uNG-At-1Wg" firstAttribute="top" secondItem="zDh-9y-8oS" secondAttribute="bottom" constant="8" id="aJj-hH-4bM"/>
-                            <constraint firstItem="3T1-8E-Y14" firstAttribute="trailing" secondItem="1LL-UV-yzA" secondAttribute="trailing" constant="16" id="cVR-qs-7KV"/>
                             <constraint firstItem="zDh-9y-8oS" firstAttribute="top" secondItem="3T1-8E-Y14" secondAttribute="top" id="esH-m2-8X2"/>
-                            <constraint firstItem="1LL-UV-yzA" firstAttribute="leading" secondItem="3T1-8E-Y14" secondAttribute="leading" constant="16" id="wJH-dp-9jw"/>
+                            <constraint firstItem="c6K-6U-Bow" firstAttribute="leading" secondItem="3T1-8E-Y14" secondAttribute="leading" constant="16" id="jR1-dv-blE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3T1-8E-Y14"/>
                     </view>
                     <connections>
                         <outlet property="cuisineLabel" destination="uNG-At-1Wg" id="K06-QV-mxt"/>
                         <outlet property="introductionLabel" destination="xl2-UY-QxB" id="thc-Vy-LwS"/>
-                        <outlet property="mapView" destination="1LL-UV-yzA" id="cZr-eD-g1D"/>
+                        <outlet property="mapContainerView" destination="c6K-6U-Bow" id="6vX-wp-JsG"/>
                         <outlet property="nameLabel" destination="zDh-9y-8oS" id="lgU-oa-8Tx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ms3-OI-Xa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="238.83058470764618"/>
+        </scene>
+        <!--Restaurant Map View Controller-->
+        <scene sceneID="V8Z-Sj-KZg">
+            <objects>
+                <viewController storyboardIdentifier="RestaurantMapViewController" id="Gs3-hj-Krn" customClass="RestaurantMapViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ozB-1R-zGV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FXX-Qe-iuI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FXX-Qe-iuI" firstAttribute="bottom" secondItem="Tbg-xy-6fC" secondAttribute="bottom" id="2dN-nL-B9J"/>
+                            <constraint firstItem="FXX-Qe-iuI" firstAttribute="leading" secondItem="Tbg-xy-6fC" secondAttribute="leading" id="L61-58-djI"/>
+                            <constraint firstItem="FXX-Qe-iuI" firstAttribute="trailing" secondItem="Tbg-xy-6fC" secondAttribute="trailing" id="P3B-O3-6Qm"/>
+                            <constraint firstItem="FXX-Qe-iuI" firstAttribute="top" secondItem="ozB-1R-zGV" secondAttribute="top" id="oab-m5-wVx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tbg-xy-6fC"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="FXX-Qe-iuI" id="0zP-fa-nPk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wbe-mV-mEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="238.83058470764618"/>
         </scene>
     </scenes>
 </document>
